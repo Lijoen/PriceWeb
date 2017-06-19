@@ -24,7 +24,7 @@ namespace PriceWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult GetStockStates([FromBody] ViewModels.Post.ItemsAndPharmacies model)
+        public IActionResult GetStockStates([FromBody] ValidationModels.Post.ItemsAndPharmacies model)
         {
             if (!ModelState.IsValid)
                 return new BadRequestObjectResult(new { });

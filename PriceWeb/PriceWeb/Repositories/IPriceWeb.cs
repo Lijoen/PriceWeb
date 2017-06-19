@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using PriceWeb.ViewModels.Post;
+using PriceWeb.ValidationModels.Post;
 
 namespace PriceWeb.Repositories
 {

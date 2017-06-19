@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PriceWeb.ViewModels.Post
+namespace PriceWeb.ValidationModels.Post
 {
     public class ItemsAndPharmacies
     {
