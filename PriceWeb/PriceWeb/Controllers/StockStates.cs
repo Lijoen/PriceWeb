@@ -16,25 +16,40 @@ namespace PriceWeb.Controllers
             _priceWebContext = priceWebContext; 
         }
 
-        [HttpGet("{storeId}")]
-        public IActionResult Get(string storeId)
+        [HttpGet()]
+        public IActionResult Get()
         {
+            var stockStates = _priceWebContext.GetAllStockStates();
 
-            return NotFound();
+            if (stockStates == null)
+                return NotFound();
+
+            return Ok(stockStates);
         }
 
         [HttpPost]
         public IActionResult GetStockStates([FromBody] ValidationModels.Post.ItemsAndPharmacies model)
         {
             if (!ModelState.IsValid)
-                return new BadRequestObjectResult(new { });
+                return new BadRequestObjectResult(new { message = ModelState.Values });
 
             var stockStates = _priceWebContext.GetInventoryForItemsOnPharmacies(model);
 
-            if(stockStates == null)
+            if (stockStates == null)
                 return NotFound();
 
             return Ok(stockStates); 
+        }
+
+        [HttpGet("/items/{itemNo}/")]
+        public IActionResult GetAllStockStatesForItem(int itemNo)
+        {
+            var stockStates = _priceWebContext.GetStockStatesForItem(itemNo);
+
+            if (stockStates == null)
+                return NotFound();
+
+            return Ok(stockStates);
         }
     }
 }

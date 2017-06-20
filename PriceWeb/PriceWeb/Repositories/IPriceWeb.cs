@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using PriceWeb.ValidationModels.Post;
+﻿using PriceWeb.ValidationModels.Post;
 
 namespace PriceWeb.Repositories
 {
@@ -12,5 +8,6 @@ namespace PriceWeb.Repositories
         Models.Stockstate GetStockState(int itemId, string gln);
         Models.Stockstate[] GetAllStockStates();
         Models.Stockstate[] GetInventoryForItemsOnPharmacies(ItemsAndPharmacies model);
+        object GetStockStatesForItem(int itemNo);
     }
 }
