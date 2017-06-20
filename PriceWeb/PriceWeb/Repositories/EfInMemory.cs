@@ -58,6 +58,11 @@ namespace PriceWeb.Repositories
 
         public Stockstate GetStockState(int itemId, string gln)
         {
+            return _context.Stockstates.SingleOrDefault(o => (o.ItemId == itemId) && (o.PharmacyId == gln));
+        }
+
+        public Stockstate[] GetStockStatesForItem(int itemNo)
+        {
             throw new NotImplementedException();
         }
     }
