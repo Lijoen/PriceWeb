@@ -8,6 +8,6 @@ namespace PriceWeb.Repositories
         Models.Stockstate GetStockState(int itemId, string gln);
         Models.Stockstate[] GetAllStockStates();
         Models.Stockstate[] GetInventoryForItemsOnPharmacies(ItemsAndPharmacies model);
-        object GetStockStatesForItem(int itemNo);
+        Models.Stockstate[] GetStockStatesForItem(int itemNo);
     }
 }
