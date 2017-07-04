@@ -4,10 +4,10 @@ namespace PriceWeb.ValidationModels.Post
 {
     public class ItemsAndPharmacies
     {
-        [Required(ErrorMessage = "Data required for this service: ItemIds")]
+        [Required(ErrorMessage = "Required data: int[] ItemIds")]
         public int[] ItemIds { get; set; }
 
-        [Required(ErrorMessage = "Data required for this service: PharmacyIds")]
+        [Required(ErrorMessage = "Required data: string[] PharmacyIds")]
         public string[] PharmacyIds { get; set; }
     }
 }

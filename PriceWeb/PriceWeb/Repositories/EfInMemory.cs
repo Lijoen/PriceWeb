@@ -8,7 +8,6 @@ namespace PriceWeb.Repositories
     public class EfInMemory : IPriceWeb
     {
         private EfDbContext _context;
-        private static int count; 
 
         public EfInMemory(EfDbContext context)
         {
@@ -53,7 +52,7 @@ namespace PriceWeb.Repositories
 
         public Item GetItem(int id)
         {
-            return _context.Items.FirstOrDefault(o => o.Id == 1);
+            return _context.Items.FirstOrDefault(o => o.Id == id);
         }
 
         public Stockstate GetStockState(int itemId, string gln)

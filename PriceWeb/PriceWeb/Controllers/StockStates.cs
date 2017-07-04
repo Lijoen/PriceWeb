@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PriceWeb.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,12 +28,10 @@ namespace PriceWeb.Controllers
             return Ok(stockStates);
         }
 
+        [ValidateModel]
         [HttpPost]
         public IActionResult GetStockStates([FromBody] ValidationModels.Post.ItemsAndPharmacies model)
         {
-            if (!ModelState.IsValid)
-                return new BadRequestObjectResult(new { message = ModelState.Values });
-
             var stockStates = _priceWebContext.GetInventoryForItemsOnPharmacies(model);
 
             if (stockStates == null)
